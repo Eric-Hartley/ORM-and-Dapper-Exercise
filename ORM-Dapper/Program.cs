@@ -29,9 +29,20 @@ namespace ORM_Dapper
             #endregion
 
             #region Products
-            var ProductsRepo = new DapperProductRepository(conn);
+            var productsRepo = new DapperProductRepository(conn);
 
-            var products = ProductsRepo.GetAllProducts();
+            /*var productToUpdate = productsRepo.GetProduct(950);
+
+            productToUpdate.Name = "Updated";
+            productToUpdate.Price = 19.99;
+            productToUpdate.CategoryID = 1;
+            productToUpdate.OnSale = false;
+            productToUpdate.StockLevel = 999;
+
+            productsRepo.UpdateProduct(productToUpdate);
+            */
+            productsRepo.DeleteProduct(950);
+            var products = productsRepo.GetAllProducts();
 
             foreach (var product in products)
             {
